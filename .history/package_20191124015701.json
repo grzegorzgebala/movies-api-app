@@ -1,0 +1,21 @@
+{
+  "name": "movies-api-app",
+  "version": "1.0.0",
+  "description": "Application with api connections",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+
+  },
+  "author": "Grzegorz Gebala",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}

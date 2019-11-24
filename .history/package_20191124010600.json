@@ -1,0 +1,11 @@
+{
+  "name": "movies-api-app",
+  "version": "1.0.0",
+  "description": "Application with api connections",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Grzegorz Gebala",
+  "license": "ISC"
+}

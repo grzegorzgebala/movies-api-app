@@ -1,0 +1,15 @@
+import React from 'react';
+import './App.css';
+import Movies from './components/movies/movies';
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        Hello react
+      </header>
+      <Movies />
+    </div>
+  );
+}
+
+export default App;
