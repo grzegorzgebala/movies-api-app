@@ -13,21 +13,22 @@ export default class Search extends Component {
     //     }
     // };
     
-    handleKeyUp = (event) => {
+    handleKeyUp(event) {
         if (event.keyCode === 13) {
             const searchingText = event.target.value;
-            this.setState({searchingText});
+            this.state.searchingText = searchingText;
             // this.props.onSearch(this.state.searchingText);
         }
     };
     
-    componentDidUpdate() {
+    componentDidMount() {
             fetch('http://www.omdbapi.com/?apikey=5449130e&t=' + this.state.searchingText)
                 .then(res => res.json())
                 .then(res => this.setState(res))
     }
 
     render() {
+        console.log(this.state)
         return (
             <div>
                 <input

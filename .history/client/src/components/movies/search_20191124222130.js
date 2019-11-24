@@ -21,13 +21,14 @@ export default class Search extends Component {
         }
     };
     
-    componentDidUpdate() {
+    componentDidMount() {
             fetch('http://www.omdbapi.com/?apikey=5449130e&t=' + this.state.searchingText)
                 .then(res => res.json())
                 .then(res => this.setState(res))
     }
 
     render() {
+        console.log(this.state)
         return (
             <div>
                 <input

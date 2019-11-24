@@ -1,27 +1,27 @@
 import React, { Component } from 'react'
-const GIPHY_LOADING_URL = 'http://www.ifmo.ru/images/loader.gif';
+
 export default class Search extends Component {
     
     constructor() {
         super();
         this.state = {}
     }
-    // handleChange(event) {
-        
-    //     if (searchingText.length > 2) {
-    //         this.props.onSearch(searchingText);
-    //     }
-    // };
-    
-    handleKeyUp = (event) => {
+    handleChange(event) {
+        const searchingText = event.target.value;
+        this.setState({searchingText: searchingText});
+
+        if (searchingText.length > 2) {
+          this.props.onSearch(searchingText);
+        }
+    };
+
+    handleKeyUp(event) {
         if (event.keyCode === 13) {
-            const searchingText = event.target.value;
-            this.setState({searchingText});
-            // this.props.onSearch(this.state.searchingText);
+          this.props.onSearch(this.state.searchingText);
         }
     };
     
-    componentDidUpdate() {
+    componentDidMount() {
             fetch('http://www.omdbapi.com/?apikey=5449130e&t=' + this.state.searchingText)
                 .then(res => res.json())
                 .then(res => this.setState(res))
@@ -32,12 +32,12 @@ export default class Search extends Component {
             <div>
                 <input
                     type="text"
-                    // onChange={this.handleChange}
+                    onChange={this.handleChange}
                     onKeyUp={this.handleKeyUp}
                     placeholder="Tutaj wpisz wyszukiwaną frazę"
                     // value={this.state.searchTerm}
                 />
-                <img src={this.state.searchingText === undefined ? GIPHY_LOADING_URL : this.state.Poster} alt="Poster" />;
+                <img src={this.state.Poster} alt="Poster" />;
             </div>
             
         )

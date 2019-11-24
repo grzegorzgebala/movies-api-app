@@ -6,28 +6,29 @@ export default class Search extends Component {
         super();
         this.state = {}
     }
-    // handleChange(event) {
+    handleChange(event) {
         
-    //     if (searchingText.length > 2) {
-    //         this.props.onSearch(searchingText);
-    //     }
-    // };
-    
-    handleKeyUp = (event) => {
-        if (event.keyCode === 13) {
-            const searchingText = event.target.value;
-            this.setState({searchingText});
-            // this.props.onSearch(this.state.searchingText);
+        if (searchingText.length > 2) {
+            this.props.onSearch(searchingText);
         }
     };
     
-    componentDidUpdate() {
+    handleKeyUp(event) {
+        if (event.keyCode === 13) {
+            const searchingText = event.target.value;
+            this.setState({searchingText: searchingText});
+            this.props.onSearch(this.state.searchingText);
+        }
+    };
+    
+    componentDidMount() {
             fetch('http://www.omdbapi.com/?apikey=5449130e&t=' + this.state.searchingText)
                 .then(res => res.json())
                 .then(res => this.setState(res))
     }
 
     render() {
+        console.log(this.state)
         return (
             <div>
                 <input
