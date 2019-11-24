@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
-import Movies from './components/movies/movies';
-import Search from './components/movies/search';
+import Movies from './components/movies/movies.js';
 
 function App() {
   return (
@@ -10,7 +9,7 @@ function App() {
         Hello react
       </header>
       <Movies />
-      <Search />
+      <input value="Movie"/>
     </div>
   );
 }
