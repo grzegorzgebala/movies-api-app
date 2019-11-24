@@ -2,45 +2,31 @@ import React, { Component } from 'react';
 import './App.css';
 import Movies from './components/movies/movies';
 import Search from './components/movies/search';
-import MoviePoster from './components/movies/moviePoster';
 
 class App extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      loading: false,  // a
-      url: '',  // b
-      searchingText: ''  
-    }
-}
-  handleSearch = (searchingText) => {  // 1.
+  handleSearch(searchingText) {  // 1.
     this.setState({
       loading: true  // 2.
     });
-    this.getMoviePoster(searchingText, (moviePoster) => {  // 3.
-      console.log(moviePoster);
+    this.getMoviePoster(searchingText, function(moviePoster) {  // 3.
       this.setState({  // 4
         loading: false,  // a
-        url: moviePoster,  // b
+        moviePoster: moviePoster,  // b
         searchingText: searchingText  // c
       });
-    }).bind(this);
+    }.bind(this));
   };
 
-  getMoviePoster(searchingText, callback) {  // 1.
-      const url = 'http://www.omdbapi.com/?apikey=5449130e&t=' + searchingText; //'https://api.giphy.com' + '/v1/gifs/random?api_key=' + '3KGfvAd3dPojEVRrAjZIBMznHR0PvBwU' + '&tag=' + searchingText;  // 2.
+  getMovie(searchingText, callback) {  // 1.
+      const url = 'http://img.omdbapi.com/?apikey=5449130e&' + searchingText; //'https://api.giphy.com' + '/v1/gifs/random?api_key=' + '3KGfvAd3dPojEVRrAjZIBMznHR0PvBwU' + '&tag=' + searchingText;  // 2.
       const xhr = new XMLHttpRequest();  // 3.
       xhr.open('GET', url);
       xhr.onload = () => {
-        console.log(xhr.status);
           if (xhr.status === 200) {
-            console.log(xhr);
-            const data = JSON.parse(xhr.responseText); // 4.
-            console.log(data);
+            const data = JSON.parse(xhr.responseText).data; // 4.
               const moviePoster = {  // 5.
-                  url: data.Poster,
-                  // sourceUrl: data.url
+                  url: data.fixed_width_downsampled_url,
+                  sourceUrl: data.url
               };
               callback(moviePoster);  // 6.
           }
@@ -64,11 +50,6 @@ class App extends Component {
         <p>Write movie title and press enter</p>
         <Search onSearch={this.handleSearch}/>
         <Movies />
-        <MoviePoster
-                loading={this.state.loading}
-                url={this.state.url}
-                // sourceUrl={this.state.sourceUrl} 
-            />
       </div>
     );
   }

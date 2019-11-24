@@ -9,9 +9,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      loading: false,  // a
-      url: '',  // b
-      searchingText: ''  
     }
 }
   handleSearch = (searchingText) => {  // 1.
@@ -24,8 +21,8 @@ class App extends Component {
         loading: false,  // a
         url: moviePoster,  // b
         searchingText: searchingText  // c
-      });
-    }).bind(this);
+      }).bind(this);
+    })
   };
 
   getMoviePoster(searchingText, callback) {  // 1.
@@ -66,7 +63,7 @@ class App extends Component {
         <Movies />
         <MoviePoster
                 loading={this.state.loading}
-                url={this.state.url}
+                url={this.state.moviePoster.url}
                 // sourceUrl={this.state.sourceUrl} 
             />
       </div>

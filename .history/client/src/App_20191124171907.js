@@ -20,12 +20,12 @@ class App extends Component {
     });
     this.getMoviePoster(searchingText, (moviePoster) => {  // 3.
       console.log(moviePoster);
-      this.setState({  // 4
+      this.state.setState({  // 4
         loading: false,  // a
         url: moviePoster,  // b
         searchingText: searchingText  // c
-      });
-    }).bind(this);
+      }).bind(this);
+    })
   };
 
   getMoviePoster(searchingText, callback) {  // 1.

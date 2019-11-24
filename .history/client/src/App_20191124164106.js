@@ -9,9 +9,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      loading: false,  // a
-      url: '',  // b
-      searchingText: ''  
     }
 }
   handleSearch = (searchingText) => {  // 1.
@@ -19,27 +16,24 @@ class App extends Component {
       loading: true  // 2.
     });
     this.getMoviePoster(searchingText, (moviePoster) => {  // 3.
-      console.log(moviePoster);
       this.setState({  // 4
         loading: false,  // a
-        url: moviePoster,  // b
+        moviePoster: moviePoster,  // b
         searchingText: searchingText  // c
-      });
-    }).bind(this);
+      }).bind(this);
+    })
   };
 
-  getMoviePoster(searchingText, callback) {  // 1.
-      const url = 'http://www.omdbapi.com/?apikey=5449130e&t=' + searchingText; //'https://api.giphy.com' + '/v1/gifs/random?api_key=' + '3KGfvAd3dPojEVRrAjZIBMznHR0PvBwU' + '&tag=' + searchingText;  // 2.
+  getMoviePoster = (searchingText, callback) => {  // 1.
+      const url = 'http://www.omdbapi.com/?apikey=5449130e&t' + searchingText; //'https://api.giphy.com' + '/v1/gifs/random?api_key=' + '3KGfvAd3dPojEVRrAjZIBMznHR0PvBwU' + '&tag=' + searchingText;  // 2.
       const xhr = new XMLHttpRequest();  // 3.
       xhr.open('GET', url);
       xhr.onload = () => {
-        console.log(xhr.status);
           if (xhr.status === 200) {
-            console.log(xhr);
-            const data = JSON.parse(xhr.responseText); // 4.
-            console.log(data);
+            console.log(xhr.responseText);
+            // const data = JSON.parse(xhr.responseText).data; // 4.
               const moviePoster = {  // 5.
-                  url: data.Poster,
+                  // url: data.Poster,
                   // sourceUrl: data.url
               };
               callback(moviePoster);  // 6.
@@ -67,7 +61,7 @@ class App extends Component {
         <MoviePoster
                 loading={this.state.loading}
                 url={this.state.url}
-                // sourceUrl={this.state.sourceUrl} 
+                sourceUrl={this.state.sourceUrl} 
             />
       </div>
     );

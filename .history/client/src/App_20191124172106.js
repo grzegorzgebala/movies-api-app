@@ -24,8 +24,8 @@ class App extends Component {
         loading: false,  // a
         url: moviePoster,  // b
         searchingText: searchingText  // c
-      });
-    }).bind(this);
+      }).bind(this);
+    })
   };
 
   getMoviePoster(searchingText, callback) {  // 1.
