@@ -1,12 +1,10 @@
-const MovieProduct = reuire('../models/movieProduct');
+const movieProduct = reuire('../models/movieProduct');
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
-const Product = require("../models/product");
-
 router.get("/", (req, res, next) => {
-    MovieProduct.find()
+    movieProduct.find()
     .exec()
     .then(docs => {
       console.log(docs);
@@ -27,12 +25,12 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  const movieProduct = new MovieProduct({
+  const product = new movieProduct({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     price: req.body.price
   });
-  movieProduct
+  product
     .save()
     .then(result => {
       console.log(result);
@@ -51,7 +49,7 @@ router.post("/", (req, res, next) => {
 
 router.get("/:productId", (req, res, next) => {
   const id = req.params.productId;
-  MovieProduct.findById(id)
+  ProdmovieProductuct.findById(id)
     .exec()
     .then(doc => {
       console.log("From database", doc);
@@ -75,7 +73,7 @@ router.patch("/:productId", (req, res, next) => {
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
   }
-  MovieProduct.update({ _id: id }, { $set: updateOps })
+  Product.update({ _id: id }, { $set: updateOps })
     .exec()
     .then(result => {
       console.log(result);
@@ -91,7 +89,7 @@ router.patch("/:productId", (req, res, next) => {
 
 router.delete("/:productId", (req, res, next) => {
   const id = req.params.productId;
-  MovieProduct.remove({ _id: id })
+  Product.remove({ _id: id })
     .exec()
     .then(result => {
       res.status(200).json(result);

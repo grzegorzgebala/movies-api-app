@@ -37,7 +37,6 @@ export default class Search extends Component {
                     <li>Year: {this.state.Year}</li>
                 </ul>
                 <img src={this.state.searchingText === undefined ? GIPHY_LOADING_URL : this.state.Poster} alt="Poster" />;
-                {/* <img src={this.state.Poster} alt="Poster" />; */}
             </div>
             
         )

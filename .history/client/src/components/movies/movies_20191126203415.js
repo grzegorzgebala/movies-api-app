@@ -11,7 +11,7 @@ class Movies extends Component {
     }
 
     componentDidMount() {
-        fetch('api/movies')
+        fetch('mongodb+srv://movies-api-app:movies-api-app@movies-api-app-wtaig.mongodb.net/test?retryWrites=true&w=majority')
             .then(res => res.json())
             .then(movies => this.setState({movies}))
     }

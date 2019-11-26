@@ -32,7 +32,7 @@ router.post("/", (req, res, next) => {
     name: req.body.name,
     price: req.body.price
   });
-  movieProduct
+  product
     .save()
     .then(result => {
       console.log(result);
@@ -51,7 +51,7 @@ router.post("/", (req, res, next) => {
 
 router.get("/:productId", (req, res, next) => {
   const id = req.params.productId;
-  MovieProduct.findById(id)
+  Product.findById(id)
     .exec()
     .then(doc => {
       console.log("From database", doc);
@@ -75,7 +75,7 @@ router.patch("/:productId", (req, res, next) => {
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
   }
-  MovieProduct.update({ _id: id }, { $set: updateOps })
+  Product.update({ _id: id }, { $set: updateOps })
     .exec()
     .then(result => {
       console.log(result);
@@ -91,7 +91,7 @@ router.patch("/:productId", (req, res, next) => {
 
 router.delete("/:productId", (req, res, next) => {
   const id = req.params.productId;
-  MovieProduct.remove({ _id: id })
+  Product.remove({ _id: id })
     .exec()
     .then(result => {
       res.status(200).json(result);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-const GIPHY_LOADING_URL = 'http://www.ifmo.ru/images/loader.gif';
+// const GIPHY_LOADING_URL = 'http://www.ifmo.ru/images/loader.gif';
 export default class Search extends Component {
     
     constructor() {
@@ -36,8 +36,8 @@ export default class Search extends Component {
                     <li>Title: {this.state.Title} </li>
                     <li>Year: {this.state.Year}</li>
                 </ul>
-                <img src={this.state.searchingText === undefined ? GIPHY_LOADING_URL : this.state.Poster} alt="Poster" />;
-                {/* <img src={this.state.Poster} alt="Poster" />; */}
+                {/* <img src={this.state.searchingText === undefined ? GIPHY_LOADING_URL : this.state.Poster} alt="Poster" />; */}
+                <img src={this.state.Poster} alt="Poster" />;
             </div>
             
         )

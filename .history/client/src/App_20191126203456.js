@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-// import Movies from './components/movies/movies';
+import Movies from './components/movies/movies';
 import Search from './components/movies/search';
 
 
