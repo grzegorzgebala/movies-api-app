@@ -12,7 +12,7 @@ export default class Search extends Component {
             const searchingText = event.target.value;
             this.setState({searchingText});
             // this.props.onSearch(this.state.searchingText);
-            fetch('http://www.omdbapi.com/?apikey='+ process.env.API_PW +'&t=' + searchingText)
+            fetch('http://www.omdbapi.com/?apikey=5449130e&t=' + searchingText)
                 .then(res => res.json())
                 .then(res => this.setState(res))
                 .catch(err => console.log(err))
