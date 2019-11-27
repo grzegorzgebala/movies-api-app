@@ -11,9 +11,6 @@ export default class Search extends Component {
         if (event.keyCode === 13) {
             const searchingText = event.target.value;
             this.setState({searchingText});
-            fetch('http://www.omdbapi.com/?apikey=5449130e&t=' + searchingText)
-                .then(res => res.json())
-                .then(res => this.setState(res))
             // this.props.onSearch(this.state.searchingText);
             fetch('http://www.omdbapi.com/?apikey=5449130e&t=' + searchingText)
                 .then(res => res.json())
@@ -30,7 +27,7 @@ export default class Search extends Component {
                 <p>To search movie write title in field below and press ENTER:</p>
                 <input
                     type="text"
-                    // onKeyPress={this.handleChange}
+                    // onChange={this.handleChange}
                     onKeyUp={this.handleKeyUp}
                     placeholder="Tutaj wpisz wyszukiwaną frazę"
                     // value={this.state.searchTerm}

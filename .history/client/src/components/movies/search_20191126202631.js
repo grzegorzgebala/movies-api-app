@@ -11,14 +11,11 @@ export default class Search extends Component {
         if (event.keyCode === 13) {
             const searchingText = event.target.value;
             this.setState({searchingText});
-            fetch('http://www.omdbapi.com/?apikey=5449130e&t=' + searchingText)
-                .then(res => res.json())
-                .then(res => this.setState(res))
             // this.props.onSearch(this.state.searchingText);
             fetch('http://www.omdbapi.com/?apikey=5449130e&t=' + searchingText)
                 .then(res => res.json())
                 .then(res => this.setState(res))
-                .catch(err => console.log(err))
+                .catch(res => console.log(res))
         }
     };
     
@@ -26,11 +23,9 @@ export default class Search extends Component {
     render() {
         return (
             <div>
-                <h2>Choose Movie</h2>
-                <p>To search movie write title in field below and press ENTER:</p>
                 <input
                     type="text"
-                    // onKeyPress={this.handleChange}
+                    // onChange={this.handleChange}
                     onKeyUp={this.handleKeyUp}
                     placeholder="Tutaj wpisz wyszukiwaną frazę"
                     // value={this.state.searchTerm}
@@ -40,7 +35,6 @@ export default class Search extends Component {
                     <li>Year: {this.state.Year}</li>
                 </ul>
                 <img src={this.state.searchingText === undefined ? GIPHY_LOADING_URL : this.state.Poster} alt="Poster" />;
-                {/* <img src={this.state.Poster} alt="Poster" />; */}
             </div>
             
         )

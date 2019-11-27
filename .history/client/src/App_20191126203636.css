@@ -27,9 +27,5 @@ input {
 }
 
 img {
-  height: 200px;
-}
-
-li {
-  list-style-type: none;
+  height: 10%;
 }

@@ -19,7 +19,7 @@ class Movies extends Component {
         return (
             <div>
                 <h2>Choose Movie</h2>
-                <p>To search movie write title in field and press ENTER:</p>
+                <p>To search movie write title in field:</p>
                 <ul>
                     {this.state.movies.map(movies => 
                         <li key={movies.id}>{movies.title}  {movies.year}</li>

@@ -4,9 +4,7 @@ const app = express();
 const port = 5000;
 const mongoose = require ('mongoose');
 
-mongoose.connect("mongodb+srv://movies-api-app:movies-api-app@movies-api-app-wtaig.mongodb.net/test?retryWrites=true&w=majority",
-{useUnifiedTopology: true, useNewUrlParser: true}
-);
+mongoose.connect("mongodb+srv://movies-api-app:" + process.env.MONGO_ATLAS_PW + "@movies-api-app-wtaig.mongodb.net/test?retryWrites=true&w=majority");
 
 app.get('/api/movies', (req, res) => {
     const movies = [
