@@ -12,31 +12,34 @@ export default class Search extends Component {
     //         this.props.onSearch(searchingText);
     //     }
     // };
-    
     handleKeyUp = (event) => {
         if (event.keyCode === 13) {
             const searchingText = event.target.value;
             this.setState({searchingText});
+            fetch('http://www.omdbapi.com/?apikey=5449130e&t=' + searchingText)
+                .then(res => res.json())
+                .then(res => this.setState(res))
             // this.props.onSearch(this.state.searchingText);
         }
     };
     
-    componentDidUpdate() {
-            fetch('http://www.omdbapi.com/?apikey=5449130e&t=' + this.state.searchingText)
-                .then(res => res.json())
-                .then(res => this.setState(res))
-    }
+    // componentDidMount() {
+    // }
 
     render() {
         return (
             <div>
                 <input
                     type="text"
-                    // onChange={this.handleChange}
+                    // onKeyPress={this.handleChange}
                     onKeyUp={this.handleKeyUp}
                     placeholder="Tutaj wpisz wyszukiwaną frazę"
                     // value={this.state.searchTerm}
                 />
+                <ul>
+                    <li>{this.state.Title} </li>
+                    <li>{this.state.year}</li>
+                </ul>
                 <img src={this.state.searchingText === undefined ? GIPHY_LOADING_URL : this.state.Poster} alt="Poster" />;
             </div>
             
