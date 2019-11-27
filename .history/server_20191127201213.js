@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
 
+const port = 5000;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -14,8 +15,7 @@ mongoose.connect("mongodb+srv://movies-api-app:movies-api-app@movies-api-app-wta
     useNewUrlParser: true
 });
 
-app.use(require('./client/routes'));
-const port = 5000;
+app.use(require('./app/routes'));
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
 

@@ -14,7 +14,7 @@ mongoose.connect("mongodb+srv://movies-api-app:movies-api-app@movies-api-app-wta
     useNewUrlParser: true
 });
 
-app.use(require('./client/routes'));
+app.use(require('./app/routes'));
 const port = 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
