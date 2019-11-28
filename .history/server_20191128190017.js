@@ -9,24 +9,21 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Connection to DB mongoDB : Atlas
-mongoose.connect("mongodb+srv://movies-api-app:movies-api-app@movies-api-app-wtaig.mongodb.net/test?retryWrites=true&w=majority",{
-    useUnifiedTopology: true, 
-    useNewUrlParser: true
+// mongoose.connect("mongodb+srv://movies-api-app:movies-api-app@movies-api-app-wtaig.mongodb.net/test?retryWrites=true&w=majority",{
+//     useUnifiedTopology: true, 
+//     useNewUrlParser: true
+// });
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://movies-api-app:movies-api-app@movies-api-app-wtaig.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
 });
 
-// Confirmation of DB connection
-const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log('Mongo connection established');
-});
-
-const movieOrders = require('./client/src/api/routes/movieOrders');
-// const usersRouter = require('./routes/users');
-
-app.use('/movies', movieOrders);
-// app.use('/users', usersRouter);
-// app.use(require('./client/routes'))
+app.use(require('./client/routes'))
 const port = 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));

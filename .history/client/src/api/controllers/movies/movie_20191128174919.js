@@ -2,10 +2,9 @@ const MovieProduct = require('../../models/movieProduct');
 
 module.exports = {
     create : async (req, res) =>{
-        // const title = 'Panic Room'; 
-        // const year = 2019;
-        // const poster = 'Link1'; 
-        const { title, year, poster } = req.body;
+        const title = 'Panic Room'; 
+        const year = 2019;
+        const poster = 'Link1'; 
         const movie = await MovieProduct.create({
             title,
             year,

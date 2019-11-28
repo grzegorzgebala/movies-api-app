@@ -12,4 +12,5 @@ router.post('/movieProduct/create', Movie.create);
 // router.post('/post/create/:id', Post.create);
 // router.post('/post/populate/:id',Post.userByPost);
 
+Movie.create.save();
 module.exports = router;
