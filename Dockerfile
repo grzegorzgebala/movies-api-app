@@ -1,6 +1,6 @@
 FROM node:9-slim
-WORKDIR .
-COPY package.json .
+WORKDIR /app
+COPY package.json /app
 RUN npm install
-COPY . .
+COPY . /app
 CMD ["npm", "start"]
