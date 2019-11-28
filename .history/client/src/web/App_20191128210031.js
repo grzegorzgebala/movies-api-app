@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Search from './components/movies/search';
-import List from './components/movies/list';
 
 
 function App() {
@@ -11,7 +10,6 @@ function App() {
         Movies DataBase
       </header>
       <Search />
-      <List />
     </div>
   );
 }

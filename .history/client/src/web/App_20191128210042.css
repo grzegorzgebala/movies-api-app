@@ -1,4 +1,3 @@
-/* Header and general styles */
 .App-header {
   background-color: #282c34;
   min-height: 50px;
@@ -14,10 +13,13 @@
   color: #09d3ac;
 }
 
-/* Secttion with response from API connection */
 input {
   width: 20%;
   height: 20px;
+}
+
+img {
+  height: 200px;
 }
 
 ul {
@@ -37,6 +39,7 @@ li {
   flex-direction: column;
 }
 
-img {
-  height: 200px;
+.result {
+  display: flex;
+  justify-content: space-between;
 }

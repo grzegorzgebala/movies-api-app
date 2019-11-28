@@ -37,10 +37,8 @@ export default class List extends Component {
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td>Closure</td>
-                            <td>1999</td>
-                            <td>Link</td>
-                            <td>Description lorem ipsum</td>
+                            <td colSpan="2">Larry the Bird</td>
+                            <td>@twitter</td>
                         </tr>
                     </tbody>
                 </Table>

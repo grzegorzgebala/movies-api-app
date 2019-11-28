@@ -22,28 +22,42 @@ export default class List extends Component {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Titanic</td>
-                            <td>1986</td>
-                            <td>Link</td>
-                            <td>Description lorem ipsum</td>
+                        <td>1</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
                         </tr>
                         <tr>
-                            <td>2</td>
-                            <td>Panic Room</td>
-                            <td>1999</td>
-                            <td>Link</td>
-                            <td>Description lorem ipsum</td>
+                        <td>2</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
                         </tr>
                         <tr>
-                            <td>3</td>
-                            <td>Closure</td>
-                            <td>1999</td>
-                            <td>Link</td>
-                            <td>Description lorem ipsum</td>
+                        <td>3</td>
+                        <td colSpan="2">Larry the Bird</td>
+                        <td>@twitter</td>
                         </tr>
                     </tbody>
                 </Table>
+                {/* <ul className="resultList">
+                    <li className="list">
+                        <h3>Title:</h3> 
+                        <p>Example Title 1</p>
+                    </li>
+                    <li className="list">
+                        <h3>Year:</h3> 
+                        <p>Example year 2009</p>
+                    </li>
+                    <li className="list">
+                        <h3>Poster:</h3>
+                        <p>Poster link</p>
+                    </li>
+                    <li className="list">
+                        <h3>Comments:</h3>
+                        <p>Description</p>
+                    </li>
+                </ul> */}
             </div>
             
         )

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-const Loading_url = 'https://cdn3.iconfinder.com/data/icons/business-management-part-1/512/8-512.png';
+const Loading_url = 'https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjTi7vf643mAhUmxqYKHa7LDP0QjRx6BAgBEAQ&url=http%3A%2F%2Fmbihealthgroup.com%2Fmbi-open-source-data-waiting-times-cancer-and-ae%2F&psig=AOvVaw1XXLYImbTn5aPc06xvon0b&ust=1575062619281668';
 export default class Search extends Component {
     
     constructor() {

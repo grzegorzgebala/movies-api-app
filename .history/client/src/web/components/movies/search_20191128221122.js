@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-const Loading_url = 'https://cdn3.iconfinder.com/data/icons/business-management-part-1/512/8-512.png';
+import Input from 'react-bootstrap/InputGroup';
+const GIPHY_LOADING_URL = 'http://www.ifmo.ru/images/loader.gif';
 export default class Search extends Component {
     
     constructor() {
@@ -23,11 +24,11 @@ export default class Search extends Component {
             <div>
                 <h2>Choose Movie:</h2>
                 <p>To search movie write title in field below and press ENTER:</p>
-                <input
+                <Input
                     type="text"
                     onKeyUp={this.handleKeyUp}
-                    placeholder="Tutaj wpisz wyszukiwaną frazę"
-                />
+                    placeholder="Tutaj wpisz wyszukiwaną frazę">
+                </Input>
                 <ul className="result">
                     <li>
                         <h2>Title:</h2> 
@@ -39,7 +40,7 @@ export default class Search extends Component {
                     </li>
                     <li>
                         <h2>Poster:</h2>
-                        <img src={this.state.searchingText === undefined ? Loading_url : this.state.Poster} alt="Poster" />
+                        <img src={this.state.searchingText === undefined ? GIPHY_LOADING_URL : this.state.Poster} alt="Poster" />;
                     </li>
                 </ul>
             </div>

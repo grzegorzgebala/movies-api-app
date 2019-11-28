@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-const Loading_url = 'https://cdn3.iconfinder.com/data/icons/business-management-part-1/512/8-512.png';
+// const GIPHY_LOADING_URL = 'http://www.ifmo.ru/images/loader.gif';
 export default class Search extends Component {
     
     constructor() {
@@ -39,7 +39,7 @@ export default class Search extends Component {
                     </li>
                     <li>
                         <h2>Poster:</h2>
-                        <img src={this.state.searchingText === undefined ? Loading_url : this.state.Poster} alt="Poster" />
+                        <img src={this.state.searchingText === undefined ? 'Waiting ...' : this.state.Poster} alt="Poster" />
                     </li>
                 </ul>
             </div>

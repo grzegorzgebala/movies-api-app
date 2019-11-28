@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-const Loading_url = 'https://cdn3.iconfinder.com/data/icons/business-management-part-1/512/8-512.png';
+const GIPHY_LOADING_URL = 'http://www.ifmo.ru/images/loader.gif';
 export default class Search extends Component {
     
     constructor() {
         super();
         this.state = {}
     }
-    // Connection with API - moviesDB
+    
     handleKeyUp = (event) => {
         if (event.keyCode === 13) {
             const searchingText = event.target.value;
@@ -17,18 +17,22 @@ export default class Search extends Component {
                 .catch(err => console.log(err))
         }
     };
+    
 
     render() {
         return (
             <div>
-                <h2>Choose Movie:</h2>
+                <h2>Choose Movie</h2>
                 <p>To search movie write title in field below and press ENTER:</p>
                 <input
                     type="text"
+                    // onKeyPress={this.handleChange}
                     onKeyUp={this.handleKeyUp}
                     placeholder="Tutaj wpisz wyszukiwaną frazę"
+                    // value={this.state.searchTerm}
                 />
-                <ul className="result">
+                <div className="result">
+                <ul>
                     <li>
                         <h2>Title:</h2> 
                         <p>{this.state.Title}</p> 
@@ -39,9 +43,11 @@ export default class Search extends Component {
                     </li>
                     <li>
                         <h2>Poster:</h2>
-                        <img src={this.state.searchingText === undefined ? Loading_url : this.state.Poster} alt="Poster" />
+                        <img src={this.state.searchingText === undefined ? GIPHY_LOADING_URL : this.state.Poster} alt="Poster" />;
                     </li>
                 </ul>
+                {/* <img src={this.state.Poster} alt="Poster" />; */}
+                </div>
             </div>
             
         )

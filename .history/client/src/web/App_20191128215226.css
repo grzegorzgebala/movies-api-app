@@ -40,3 +40,14 @@ li {
 img {
   height: 200px;
 }
+
+/* Movies list fomr Data Base */
+
+.resultList {
+  display: flex;
+  justify-content: flex-start;
+
+  li {
+    
+  }
+}
