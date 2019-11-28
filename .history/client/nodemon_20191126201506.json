@@ -1,0 +1,6 @@
+{
+    "env": {
+        "MONGO_ATLAS_PW": "movies-api-app",
+        "API_PW": "5449130e"
+    }
+}
